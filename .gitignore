@@ -1,0 +1,13 @@
+# Python bytecode / cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables (API keys)
+.env
+
+# Local user data / tests
+test_data.json
