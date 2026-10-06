@@ -1,106 +1,42 @@
 # Smart NYSC Allawee & Expense Copilot (AllaweeBot)
 
-AllaweeBot is an interactive Python/Streamlit application designed to help NYSC corps members record expenses, monitor monthly spending limits, benchmark purchasing power, and receive personalized financial guidance.
+Python/Streamlit budgeting assistant for NYSC corps members. It records expenses, monitors a monthly allowance, validates quick expense text, persists data locally, generates reports, and optionally connects to Gemini and an exchange-rate API.
 
-## Project
+## Group 27
 
-- **Course:** Python Advanced
-- **Organization:** NCAIR Internship
-- **Group:** 27
-- **Project title:** Smart NYSC Allawee & Expense Copilot (AllaweeBot)
-
-## Group members supplied for the submission
-
-| Name | NYSC ID | Role / Branch |
+| Member | NYSC ID | Branch |
 |---|---|---|
-| Daniel Aisoa Idemudia | NC-NY-000493 | Group Leader — `feature/core-oop` |
-| Ahmad Ibrahim | NC-NY-000519 | Group Member — `feature/budget-engine` |
-| Abdulrahman Idris | NC-SI-000815 | Group Member — `feature/regex-validation` |
-| Paul Oloche | NC-NY-000532 | Group Member — `feature/file-handling` |
+| Daniel Aisoa Idemudia | NC-NY-000493 | feature/core-oop |
+| Ahmad Ibrahim | NC-NY-000519 | feature/budget-engine |
+| Abdulrahman Idris | NC-SI-000815 | feature/regex-validation |
+| Paul Oloche | NC-NY-000532 | feature/file-handling |
+| Ajiroba Samuel | NC-SI-001019 | feature/exception-handling |
+| Noel Kwufodu | NC-NY-000465 | feature/streamlit-ui |
+| Pending | Pending | feature/gemini-ai |
+| Pending | Pending | feature/public-api |
 
-## Main features
+The final two identities remain pending until their names and NYSC IDs are supplied.
 
-- Object-Oriented Programming models for users, corps members, expenses, and budgets
-- Regular-expression validation and natural-language expense parsing
-- Category-based allowance limits and overspending warnings
+## Features
+- OOP user and expense models
+- Category-based budget tracking and allowance protection
+- Regex validation and natural-language expense parsing
 - JSON persistence and CSV/text reports
-- Exception handling for invalid input, files, and external services
-- Streamlit dashboard with Plotly visualizations
-- Optional Google Gemini financial copilot
-- USD/NGN purchasing-power benchmark using ExchangeRate-API
+- Application-specific exception handling
+- Streamlit dashboard
+- Optional Gemini financial advice
+- USD/NGN purchasing-power benchmark
 
-## Technology stack
-
-- Python 3.10+
-- Streamlit
-- Pandas
-- Plotly
-- Google Gemini API
-- ExchangeRate-API
-- JSON / CSV
-- Git and GitHub
-
-## Project structure
-
-```text
-Allawee-Bot/
-├── app.py
-├── models.py
-├── budget.py
-├── parsers.py
-├── storage.py
-├── reports.py
-├── services.py
-├── exceptions.py
-├── requirements.txt
-├── .env.example
-├── .gitignore
-├── data/
-├── exports/
-└── tests/
-```
-
-## Local setup
-
-Create and activate a virtual environment, then install the dependencies:
-
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
+## Setup
+Create a virtual environment, install requirements, then run the Streamlit app:
+python -m venv .venv
 pip install -r requirements.txt
-```
-
-Create a local `.env` file from `.env.example` and add your Gemini API key if AI features are required.
-
-Run the application:
-
-```powershell
 streamlit run app.py
-```
 
-Run tests:
-
-```powershell
+Run automated tests with:
 pytest -q
-```
+
+Copy .env.example to a local .env file when using Gemini. Never commit .env or API keys.
 
 ## Git workflow
-
-The project is intended to use a `main` branch plus these feature branches:
-
-- `feature/core-oop`
-- `feature/budget-engine`
-- `feature/regex-validation`
-- `feature/file-handling`
-- `feature/exception-handling`
-- `feature/streamlit-ui`
-- `feature/gemini-ai`
-- `feature/public-api`
-
-Changes should be developed on feature branches and merged into `main` through pull requests.
-
-> **Security:** Never commit API keys or other secrets. The local `.env` file is ignored by Git.
-
-## Project purpose
-
-AllaweeBot addresses common budgeting difficulties faced by NYSC corps members, including transportation, food, data, accommodation, savings, and other day-to-day expenses.
+Development is organized into feature branches and merged to main through pull requests.
