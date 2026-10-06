@@ -11,3 +11,6 @@ venv/
 
 # Local user data / tests
 test_data.json
+# Per-user account and profile data
+ data/accounts.json
+ data/profiles/
