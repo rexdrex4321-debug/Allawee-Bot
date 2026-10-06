@@ -1,0 +1,14 @@
+# Submission Checklist
+- [x] Core OOP models integrated
+- [x] Budget engine integrated
+- [x] Regex validation and parsing integrated
+- [x] File persistence and reporting integrated
+- [x] Exception/service layer integrated
+- [x] Streamlit UI integrated
+- [x] Automated tests included
+- [x] Secrets excluded by .gitignore
+- [x] README and group assignments documented
+- [ ] Install requirements in a clean environment
+- [ ] Run pytest -q
+- [ ] Run streamlit run app.py
+- [ ] Supply the two pending member identities if required
