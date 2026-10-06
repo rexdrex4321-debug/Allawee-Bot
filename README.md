@@ -9,6 +9,15 @@ AllaweeBot is an interactive Python/Streamlit application designed to help NYSC 
 - **Group:** 27
 - **Project title:** Smart NYSC Allawee & Expense Copilot (AllaweeBot)
 
+## Group members supplied for the submission
+
+| Name | NYSC ID | Role / Branch |
+|---|---|---|
+| Daniel Aisoa Idemudia | NC-NY-000493 | Group Leader — `feature/core-oop` |
+| Ahmad Ibrahim | NC-NY-000519 | Group Member — `feature/budget-engine` |
+| Abdulrahman Idris | NC-SI-000815 | Group Member — `feature/regex-validation` |
+| Paul Oloche | NC-NY-000532 | Group Member — `feature/file-handling` |
+
 ## Main features
 
 - Object-Oriented Programming models for users, corps members, expenses, and budgets
@@ -77,7 +86,7 @@ pytest -q
 
 ## Git workflow
 
-The project is intended to use a main branch plus feature branches:
+The project is intended to use a `main` branch plus these feature branches:
 
 - `feature/core-oop`
 - `feature/budget-engine`
@@ -88,16 +97,9 @@ The project is intended to use a main branch plus feature branches:
 - `feature/gemini-ai`
 - `feature/public-api`
 
-Changes should be developed on feature branches and merged into `main) through pull requests.
+Changes should be developed on feature branches and merged into `main` through pull requests.
 
-## Group member currently recorded
-
-| Member | Responsibility / Branch |
-|---|---|
-| Daniel Aisosa Idemudia | Group Leader — `feature/core-oop` |
-| Paul Oloche | Group member — assignment to be confirmed |
-
-> Do not commit API keys or other secrets to this repository. The local `.env` file is ignored by Git.
+> **Security:** Never commit API keys or other secrets. The local `.env` file is ignored by Git.
 
 ## Project purpose
 
