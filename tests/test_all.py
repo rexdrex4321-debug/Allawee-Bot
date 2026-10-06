@@ -3,7 +3,9 @@ from budget import BudgetTracker
 from parsers import parse_expense_text,validate_state_code,sanitize_phone
 from exceptions import InsufficientAllaweeError,ExpenseParseError
 from reports import build_text_report
-from storage import DataManager
+from storage import DataManager,AccountStore,ProfileStore
+from auth import hash_password,verify_password,make_user_id
+
 def user(): return CorperUser("Test User","test@example.com","08012345678","Anambra","FC/26A/1234",monthly_allowance=77000)
 def test_models(): assert Expense(100,"Food","Lunch").to_dict()["amount"]==100
 def test_budget():
@@ -22,3 +24,12 @@ def test_report(): assert "ALLAWEEBOT MONTHLY REPORT" in build_text_report(user(
 def test_storage(tmp_path):
  m=DataManager(tmp_path/"budget.json"); m.save_profile(user(),{"Food":1.0}); m.save_expenses([Expense(2500,"Food","Lunch")]); p,pc,_=m.load_profile(); assert p.name=="Test User" and pc=={"Food":1.0} and m.load_expenses()[0].amount==2500
 def test_missing_storage(tmp_path): assert DataManager(tmp_path/"missing.json").load()==DataManager(tmp_path/"missing.json").default_payload()
+def test_password_hash_is_not_plaintext():
+ h=hash_password("correct-horse"); assert h!="correct-horse" and verify_password("correct-horse",h) and not verify_password("wrong-pass",h)
+def test_account_store(tmp_path):
+ store=AccountStore(tmp_path/"accounts.json"); uid=make_user_id("TEST@example.com")
+ store.create(uid,{"id":uid,"email":"test@example.com","password_hash":"hash","name":"Test"})
+ assert store.get(uid)["name"]=="Test"
+def test_profile_store(tmp_path):
+ store=ProfileStore(tmp_path/"profiles"); p=user(); store.save_user_data("abc",p,[Expense(100,"Food","Snack")],{"Food":1.0})
+ assert store.profile("abc").email=="test@example.com" and store.expenses("abc")[0].amount==100
