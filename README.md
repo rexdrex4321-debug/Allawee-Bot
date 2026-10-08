@@ -28,15 +28,22 @@ The final two identities remain pending until their names and NYSC IDs are suppl
 - USD/NGN purchasing-power benchmark
 
 ## Setup
-Create a virtual environment, install requirements, then run the Streamlit app:
+Create a virtual environment and install all project dependencies before running the app:
+\n\n\`\`\`powershell
 python -m venv .venv
-pip install -r requirements.txt
-streamlit run app.py
-
-Run automated tests with:
-pytest -q
-
-Copy .env.example to a local .env file when using Gemini. Never commit .env or API keys.
-
-## Git workflow
+.venv\\Scripts\\Activate.ps1
+python -m pip install -r requirements.txt
+\`\`\`
+\nStart the Streamlit app with:
+\n\`\`\`powershell
+python -m streamlit run app.py
+\`\`\`
+\nRun automated tests with:
+\n\`\`\`powershell
+$env:PYTHONPATH = "."
+python -m pytest -q
+\`\`\`
+\nIf PowerShell blocks virtual-environment activation, you can install the requirements without activating it by using the Python executable inside \`.venv\\Scripts\\python.exe\`.
+\nCopy \`.env.example\` to a local \`.env\` file when using Gemini or SMTP email. Never commit \`.env\` or API keys.
+\n## Git workflow
 Development is organized into feature branches and merged to main through pull requests.
